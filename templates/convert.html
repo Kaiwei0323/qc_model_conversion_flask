@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Model Conversion{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Convert ONNX Model to DLC</h2>
+    <form id="convert-form" action="/convert" method="post" enctype="multipart/form-data">
+        
+        <label for="file">Upload ONNX Model:</label>
+        <input type="file" name="file" required>
+
+        <label for="encoding">Use Encoding File?</label>
+        <select name="encoding" id="encoding">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <div id="encoding-options" class="hidden">
+            <label for="encodings_file">Upload Encodings File:</label>
+            <input type="file" name="encodings_file">
+        </div>
+
+        <label for="quantize">Enable Quantization?</label>
+        <select name="quantize" id="quantize">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+
+        <div id="quantize-options" class="hidden">
+            <label for="resolution">Resolution:</label>
+            <select name="resolution">
+                <option value="640">640x640</option>
+                <option value="480">480x480</option>
+            </select>
+
+            <label for="quantize_images">Upload Quantization Folder:</label>
+            <input type="file" name="quantize_images" id="quantize_images" multiple webkitdirectory>
+        </div>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    <!-- Loading message -->
+    <div id="loading" class="hidden">
+        <p>🔄 Converting model... Please wait.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("encoding").addEventListener("change", function() {
+        let encodingOptions = document.getElementById("encoding-options");
+        let encodingFile = document.querySelector("input[name='encodings_file']");
+
+        if (this.value === "yes") {
+            encodingOptions.classList.remove("hidden");
+            encodingFile.setAttribute("required", "required");
+        } else {
+            encodingOptions.classList.add("hidden");
+            encodingFile.removeAttribute("required");
+        }
+    });
+
+    document.getElementById("quantize").addEventListener("change", function() {
+        let quantizeOptions = document.getElementById("quantize-options");
+        let quantizeImages = document.querySelector("input[name='quantize_images']");
+
+        if (this.value === "yes") {
+            quantizeOptions.classList.remove("hidden");
+            quantizeImages.setAttribute("required", "required");
+        } else {
+            quantizeOptions.classList.add("hidden");
+            quantizeImages.removeAttribute("required");
+        }
+    });
+
+    document.getElementById("convert-form").addEventListener("submit", function(event) {
+        let encodingSelected = document.getElementById("encoding").value === "yes";
+        let encodingFile = document.querySelector("input[name='encodings_file']");
+
+        let quantizeSelected = document.getElementById("quantize").value === "yes";
+        let quantizeImages = document.querySelector("input[name='quantize_images']");
+
+        // Validate encoding file if required
+        if (encodingSelected && encodingFile.files.length === 0) {
+            alert("Please upload an encoding file.");
+            event.preventDefault();
+            return;
+        }
+
+        // Validate quantization images folder if required
+        if (quantizeSelected && quantizeImages.files.length === 0) {
+            alert("Please upload a quantization folder.");
+            event.preventDefault();
+            return;
+        }
+
+        // Show loading message
+        document.getElementById("loading").classList.remove("hidden");
+    });
+</script>
+
+{% endblock %}
+

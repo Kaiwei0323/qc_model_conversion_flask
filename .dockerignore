@@ -1,0 +1,8 @@
+# Ignore these directories
+dlc/
+model/
+output/
+quantization_data/
+test_img/
+uploads/
+

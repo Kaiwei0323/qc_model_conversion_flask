@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Model Visualization{% endblock %}
+
+{% block content %}
+<div class="visualization-container">
+    <h1>📊 Visualize Your DLC Model</h1>
+    <p>Upload your DLC file to generate a visualization.</p>
+
+    <form action="/visualization" method="post" enctype="multipart/form-data" class="visualization-form">
+        <input type="file" name="file" id="file-upload" required>
+        <button type="submit">🔍 Visualize</button>
+    </form>
+
+    {% if filename %}
+        <div class="results-section">
+            <h2>Results for: <span class="file-name">{{ filename }}</span></h2>
+            <pre class="output-box">{{ output }}</pre>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

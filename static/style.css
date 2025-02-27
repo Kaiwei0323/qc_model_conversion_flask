@@ -1,0 +1,223 @@
+/* Ensure full height and width */
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+    box-sizing: border-box;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 20px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+
+/* Main content */
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    background: white;
+    overflow: auto; /* Allow scrolling within content */
+    box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Home Page */
+.home-container {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Convert Page */
+/* Convert Page Styling */
+.form-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Form Headings */
+.form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    font-size: 16px;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Input Focus */
+input[type="file"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    background: #fff;
+}
+
+/* Labels */
+.form-container label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin-top: 15px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    transform: scale(1.02);
+}
+
+/* Optional Sections */
+.hidden {
+    display: none;
+}
+
+/* Optional Fields (Encodings & Quantization) */
+#encoding-options,
+#quantize-options {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f3f5;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Loading Message */
+#loading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #007bff;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Download Page */
+.download-container {
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+    background: #f8f9fa;
+    box-sizing: border-box;
+}
+
+/* Visualization Page */
+.visualization-container {
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+    background: #f8f9fa;
+    box-sizing: border-box;
+}
+
+.visualization-form button {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin: 10px auto; /* Centering the button */
+}
+
+/* Output Box - Full Width */
+.output-box {
+    background: #fff;
+    padding: 15px;
+    font-size: 1rem;
+    white-space: pre-wrap; /* Keeps text formatting */
+    border: 1px solid #ddd;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Results Section */
+.results-section {
+    width: 100%;
+    margin-top: 30px;
+    text-align: left;
+    box-sizing: border-box;
+}
+

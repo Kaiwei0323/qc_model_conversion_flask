@@ -1,0 +1,28 @@
+{
+    "activation_encodings": {
+        "/model.22/Sigmoid_output_0": [
+            {
+                "bitwidth": 16,
+                "dtype": "int",
+                "max": 0.996093750000,
+                "min": 0.0,
+                "offset": 0,
+                "scale": 0.00001519941634
+            }
+        ],
+        "output0": [
+            {
+                "bitwidth": 16,
+                "dtype": "int",
+                "is_symmetric": "False",
+                "max": 643.878662109375,
+                "min": 0.0,
+                "offset": 0,
+                "scale": 0.00982495860394255
+            }
+        ]
+    },
+    "param_encodings": {
+    
+    }
+}
