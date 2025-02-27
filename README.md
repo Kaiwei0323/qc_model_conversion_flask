@@ -10,6 +10,22 @@
 * YOLOv12
 * DETR
 
+## File Tree
+```
+model_conversion_flask
+│-- sdk/                          
+│   │-- android-ndk-r26c-linux/   
+│   │-- v2.22.6.240515/           
+│-- static/                    
+│-- templates/                
+│-- app.py                  
+│-- create_file_list.py         
+│-- create_inceptionv3_raws.py   
+│-- Dockerfile                  
+│-- setup_env.sh                
+```
+Create an sdk folder and place android-ndk-r26c-linux and v2.22.6.240515 inside it.
+
 ## Environment Setup
 ```
 git clone https://github.com/Kaiwei0323/qc_model_conversion_flask.git
