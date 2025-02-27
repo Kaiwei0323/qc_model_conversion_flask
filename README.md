@@ -26,6 +26,16 @@ model_conversion_flask
 ```
 Create an sdk folder and place android-ndk-r26c-linux and v2.22.6.240515 inside it.
 
+**Downlaod Links:**
+* v2.22.6.240515
+```
+curl -L -O "https://huggingface.co/datasets/kaiwei0323/my-sdk/resolve/main/v2.22.6.240515.zip"
+```
+* android-ndk-r26c-linux
+```
+curl -L -O "https://huggingface.co/datasets/kaiwei0323/my-sdk/resolve/main/android-ndk-r26c-linux.zip"
+```
+
 ## Environment Setup
 ```
 git clone https://github.com/Kaiwei0323/qc_model_conversion_flask.git
