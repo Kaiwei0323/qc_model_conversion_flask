@@ -53,7 +53,16 @@ The application will be accessible on the configured IP and port.
 
 ### Model Conversion Tab
 #### For YOLOv8, YOLOv11, YOLOv12:
-⚠ **Caution**: for yolo model please export .onnx model with **op=10**
+⚠ **Caution**: for yolo model please export .onnx model with **opset=10**
+
+ex:
+```
+pip install ultralytics
+python
+from ultralytics import YOLO
+model = YOLO("yolov8s.pt")
+model.export(format="onnx", opset=10)
+```
 1. Upload your ONNX model.
 2. Select "Yes" for using an encoding file.
 3. Upload yolo8_act.encodings.
