@@ -41,7 +41,7 @@ curl -L -O "https://huggingface.co/datasets/kaiwei0323/my-sdk/resolve/main/andro
 git clone https://github.com/Kaiwei0323/qc_model_conversion_flask.git
 cd qc_model_conversion_flask
 ```
-Modify line 39 in the code to specify the desired host IP and port.
+Modify line 39 in the **Dockerfile** to specify the desired host IP and port.
 Then, build and run the application using Docker:
 ```
 sudo docker build -t flask-snpe-app .
