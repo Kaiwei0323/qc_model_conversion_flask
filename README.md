@@ -74,3 +74,7 @@ The application will be accessible on the configured IP and port.
 ### Model Visualization Tab
 1. Upload your DLC model.
 2. Press the Visualize button.
+
+## Try It Out  
+You can access our website here:  
+[http://99.64.152.69:5000](http://99.64.152.69:5000) 
