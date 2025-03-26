@@ -78,12 +78,12 @@ model.export(format="onnx", opset=10)
 
 #### For DETR:
 
-1. Upload your ONNX model.
-2. Select "No" for using an encoding file.
-3. Select "Yes" to enable quantization.
-4. Choose 480x480 for resolution.
-5. Upload your image files.
-6. Press the Convert button.
+1. **Upload** your ONNX model.  
+2. **Select "No"** for using an encoding file.  
+3. **Select "Yes"** to enable quantization.  
+4. **Choose** `480x480` for resolution.  
+5. **Upload** your image files.  
+6. **Press the "Convert"** button to start the process.  
 
 ### Model Visualization Tab
 1. Upload your DLC model.
