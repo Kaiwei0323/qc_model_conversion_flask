@@ -1,7 +1,7 @@
 import sys
 import os
 import subprocess
-from flask import Flask, request, render_template, send_from_directory, redirect, url_for
+from flask import Flask, request, render_template, send_from_directory, redirect, url_for, make_response, abort
 
 app = Flask(__name__)
 
@@ -14,6 +14,17 @@ QUANTIZE_FOLDER = 'quantization_data'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(DLC_FOLDER, exist_ok=True)
 os.makedirs(QUANTIZE_FOLDER, exist_ok=True)
+
+@app.before_request
+def block_trace_track():
+    if request.method in ['TRACE', 'TRACK']:
+        abort(405) 
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['Content-Security-Policy'] = "frame-ancestors 'none';"
+    return response
 
 @app.route('/')
 def home():
@@ -94,7 +105,7 @@ def convert_model():
             list_script = os.path.join(os.path.dirname(__file__), 'create_file_list.py')
 
             # Generate RAW images
-            command_raw = ['python', raw_script, '-s', resolution, '-i', image_folder, '-d', image_folder]
+            command_raw = [sys.executable, raw_script, '-s', resolution, '-i', image_folder, '-d', image_folder]
             try:
                 subprocess.run(command_raw, check=True)
             except subprocess.CalledProcessError as e:
@@ -102,7 +113,7 @@ def convert_model():
 
             # Generate image file list
             list_txt = os.path.join(image_folder, 'image_file_list.txt')
-            command_list = ['python', list_script, '-i', image_folder, '-o', list_txt, '-e', '*.raw']
+            command_list = [sys.executable, list_script, '-i', image_folder, '-o', list_txt, '-e', '*.raw']
             try:
                 subprocess.run(command_list, check=True)
             except subprocess.CalledProcessError as e:

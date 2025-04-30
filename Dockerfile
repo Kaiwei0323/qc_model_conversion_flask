@@ -36,4 +36,4 @@ RUN echo "source ${SNPE_ROOT}/bin/envsetup.sh" >> /etc/bash.bashrc
 EXPOSE 5000
 
 # Run the Flask app on the specified IP address
-CMD ["/bin/bash", "-c", "source ${SNPE_ROOT}/bin/envsetup.sh && python3 app.py --host=192.168.1.125 --port=5000"]
+CMD ["/bin/bash", "-c", "source ${SNPE_ROOT}/bin/envsetup.sh && python3 app.py --host=99.64.152.69 --port=5000"]
