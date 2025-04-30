@@ -41,7 +41,7 @@ curl -L -O "https://huggingface.co/datasets/kaiwei0323/my-sdk/resolve/main/andro
 git clone https://github.com/Kaiwei0323/qc_model_conversion_flask.git
 cd qc_model_conversion_flask
 ```
-Modify line 39 in the code to specify the desired host IP and port.
+Modify line 39 in the **Dockerfile** to specify the desired host IP and port.
 Then, build and run the application using Docker:
 ```
 sudo docker build -t flask-snpe-app .
@@ -53,24 +53,42 @@ The application will be accessible on the configured IP and port.
 
 ### Model Conversion Tab
 #### For YOLOv8, YOLOv11, YOLOv12:
-⚠ **Caution**: for yolo model please export model with **op=10**
-1. Upload your ONNX model.
-2. Select "Yes" for using an encoding file.
-3. Upload yolo8_act.encodings.
-4. Select "Yes" to enable quantization.
-5. Choose 640x640 for resolution.
-6. Upload your image files.
-7. Press the Convert button.
+⚠ **Caution**: for yolo model please export .onnx model with **opset=10**
+
+ex:
+```
+pip install ultralytics
+python
+from ultralytics import YOLO
+model = YOLO("yolov8s.pt")
+model.export(format="onnx", opset=10)
+```
+1. **Upload** your ONNX model.  
+2. **Select "Yes"** for using an encoding file.  
+3. **Download and upload** the encoding file:  
+   - Click to download: **[yolo8_act.encodings](https://github.com/Kaiwei0323/qc_model_conversion_flask/raw/master/yolo8_act.encodings)**  
+   - Or use the command below in your terminal:  
+     ```bash
+     wget https://github.com/Kaiwei0323/qc_model_conversion_flask/raw/master/yolo8_act.encodings
+     ```
+4. **Select "Yes"** to enable quantization.  
+5. **Choose** `640x640` for resolution.  
+6. **Upload** your image files.  
+7. **Press the "Convert"** button to start the process. 
 
 #### For DETR:
 
-1. Upload your ONNX model.
-2. Select "No" for using an encoding file.
-3. Select "Yes" to enable quantization.
-4. Choose 480x480 for resolution.
-5. Upload your image files.
-6. Press the Convert button.
+1. **Upload** your ONNX model.  
+2. **Select "No"** for using an encoding file.  
+3. **Select "Yes"** to enable quantization.  
+4. **Choose** `480x480` for resolution.  
+5. **Upload** your image files.  
+6. **Press the "Convert"** button to start the process.  
 
 ### Model Visualization Tab
 1. Upload your DLC model.
 2. Press the Visualize button.
+
+## Try It Out  
+You can access our website here:  
+[http://99.64.152.69:5000](http://99.64.152.69:5000) 
