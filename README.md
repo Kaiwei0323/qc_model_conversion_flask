@@ -63,13 +63,17 @@ from ultralytics import YOLO
 model = YOLO("yolov8s.pt")
 model.export(format="onnx", opset=10)
 ```
+or direct download
+```
+wget -c https://www.inventecna.com/files/models/detection/yolov8/yolov8s_opset10.onnx
+```
 1. **Upload** your ONNX model.  
 2. **Select "Yes"** for using an encoding file.  
 3. **Download and upload** the encoding file:  
    - Click to download: **[yolo8_act.encodings](https://github.com/Kaiwei0323/qc_model_conversion_flask/raw/master/yolo8_act.encodings)**  
    - Or use the command below in your terminal:  
      ```bash
-     wget https://github.com/Kaiwei0323/qc_model_conversion_flask/raw/master/yolo8_act.encodings
+     wget -c https://www.inventecna.com/files/models/detection/yolov8/yolo8_act.encodings
      ```
 4. **Select "Yes"** to enable quantization.  
 5. **Choose** `640x640` for resolution.  
